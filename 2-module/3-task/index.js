@@ -1,7 +1,6 @@
 let calculator = {};
 
 calculator.read = function (a, b) {
-  console.log("read: ", a, b);
   this.a = a;
   this.b = b;
 };
