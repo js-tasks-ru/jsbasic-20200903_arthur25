@@ -43,9 +43,6 @@ export default class Carousel {
     carouselInner.appendChild(this.getSlides());
 
     this.initCarousel(this.slides, carouselInner, arrowRight, arrowLeft);
-
-    console.dir(carouselInner);
-    console.dir(carouselInner.offsetWidth);
     return this.elem;
   }
 
@@ -127,8 +124,6 @@ export default class Carousel {
   }
 
   initCarousel(arr, inner, arrowRight, arrowLeft) {
-    let container = document.querySelector(".container");
-
     let sumWidthSlides = 0;
     let count = 0;
 
@@ -155,7 +150,7 @@ export default class Carousel {
     getStatusButton();
 
     arrowRight.addEventListener("click", function () {
-      sumWidthSlides += container.offsetWidth;
+      sumWidthSlides += inner.offsetWidth;
       inner.style.transform = `translateX(-${sumWidthSlides}px)`;
 
       count++;
@@ -164,7 +159,7 @@ export default class Carousel {
     });
 
     arrowLeft.addEventListener("click", function () {
-      sumWidthSlides -= container.offsetWidth;
+      sumWidthSlides -= inner.offsetWidth;
       inner.style.transform = `translateX(-${sumWidthSlides}px)`;
 
       count--;
